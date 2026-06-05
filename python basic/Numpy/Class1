@@ -1,0 +1,182 @@
+# What is Exception Handling?
+
+Exception Handling is used to handle errors in a program so the program does not crash suddenly.
+
+It helps:
+
+Prevent program termination
+Handle errors properly
+Improve user experience
+Make programs more stable
+# What is an Exception?
+
+An exception is an error that occurs during program execution.
+
+## Example:
+10 / 0
+# Why Do We Use Exception Handling?
+
+Without exception handling:
+
+Program stops immediately when error occurs
+
+With exception handling:
+
+Program continues running
+Error message can be controlled
+try:
+    # risky code
+
+except:
+    # code to handle error
+try:
+    num = 10 / 0
+
+except:
+    print("Error occurred")
+# Types of Exceptions
+
+Some common exceptions:
+| Exception         | Meaning                  |
+| ----------------- | ------------------------ |
+| ZeroDivisionError | Dividing by zero         |
+| ValueError        | Wrong value type         |
+| TypeError         | Wrong datatype operation |
+| IndexError        | Invalid list index       |
+| KeyError          | Invalid dictionary key   |
+| FileNotFoundError | File does not exist      |
+
+try:
+    number = 10 / 0
+
+except ZeroDivisionError:
+    print("Division by zero is not allowed")
+try:
+    age = int(input("Enter age: "))
+
+except ValueError:
+    print("Please enter numbers only")
+try:
+
+    num1 = int(input("Enter first number: "))
+    num2 = int(input("Enter second number: "))
+
+    print(num1 / num2)
+
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+except ValueError:
+    print("Invalid input")
+# Using else in Exception Handling
+Explanation
+
+The else block runs if no exception occurs.
+try:
+
+    num = int(input("Enter a number: "))
+    print(num)
+
+except ValueError:
+    print("Invalid input")
+
+else:
+    print("Program executed successfully")
+# Using finally
+Explanation
+
+The finally block always executes whether error occurs or not.
+try:
+
+    print(10 / 2)
+
+except:
+    print("Error")
+
+finally:
+    print("This block always runs")
+# File Handling in Python
+What is File Handling?
+
+File handling is used to:
+
+*  Create files
+
+*  Read files
+*  Write files
+*  Update files
+*  Delete files
+# Opening a File
+Syntax
+open("filename", "mode")
+# File Modes
+| Mode | Meaning      |
+| ---- | ------------ |
+| r    | Read         |
+| w    | Write        |
+| a    | Append       |
+| x    | Create       |
+| rb   | Read binary  |
+| wb   | Write binary |
+
+# Reading a File
+Example
+file = open("data.txt", "r")
+
+print(file.read())
+
+file.close()
+# Writing to a File
+Example
+file = open("data.txt", "w")
+
+file.write("Hello Python")
+
+file.close()
+
+
+# Important Note
+
+# "w" mode:
+
+# Creates file if not exists
+# Removes old data
+# Appending Data
+Example
+file = open("data.txt", "a")
+
+file.write("\nNew Line Added")
+
+file.close()
+
+# Difference Between Write and Append
+| Write (`w`)       | Append (`a`)   |
+| ----------------- | -------------- |
+| Deletes old data  | Keeps old data |
+| Writes from start | Adds at end    |
+
+# Reading Line by Line
+Example
+file = open("data.txt", "r")
+
+for line in file:
+    print(line)
+
+file.close()
+with open("data.txt", "r") as file:
+
+    content = file.read()
+
+    print(content)
+# Delete A File
+import os
+
+os.remove("data.txt")
+with open("students.txt", "a") as file:
+
+    name = input("Enter student name: ")
+    marks = input("Enter student marks: ")
+
+    file.write(name + " - " + marks + "\n")
+
+print("Record Saved")
